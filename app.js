@@ -9,12 +9,12 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-const PORT = 8080;
+const PORT = process.env.PORT || 7000;
 
 var router = express.Router();
 
 router.get('/', function (request, response) {
-  response.render('index', { title: 'Welcome!' });
+  response.render('index', { title: 'Welcome! ' + process.env.NAME });
 });
 
 router.get('/student', function (request, response) {
